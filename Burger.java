@@ -97,7 +97,7 @@ public class Burger {
                 System.out.print("\t\tChoose topping No" + i + ": ");
                 String currentTopping = Main.scanner.nextLine();
                 if (currentTopping.equals("") || currentTopping.toLowerCase().equals("no")) {
-                    System.out.println("Ok, burger will stay with only " + (i - 1) + "toppings.");
+                    System.out.println("\tOk, burger will stay with only " + (i - 1) + "toppings.");
                     break;
                 }
                 topppingCount++;

@@ -11,6 +11,10 @@ public class Meal {
 
      public Meal(String type) {
           Burger burger = new Burger(type);
+          if (!burger.getType().equals("Hamburger")){
+               Burger.singleBurgerOrder(burger.getType());
+              // Burger.Toppings.withTopping(burger.getType());
+          }
           System.out.print("\tPlease choose drink kind: ");
           String drinkKind = Main.scanner.nextLine();
           Drink drink = new Drink(drinkKind, "");
@@ -22,6 +26,7 @@ public class Meal {
                sideItem.setSize("small");
                price = 8;
           }else if (type.toLowerCase().contains("che")){
+
                price = 12;
           }else if (type.toLowerCase().contains("cha")){
                price = 13;
@@ -29,10 +34,6 @@ public class Meal {
                price = 10;
           }
      }
-
-     /*public static Meal mealOrder(String kind, String size){
-
-     }*/
 
      public double getPrice() {
           return price;

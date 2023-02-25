@@ -28,7 +28,11 @@ public class Main {
             }
             switch (choice) {
                 case 1 -> {
-                    Burger burger = Burger.singleBurgerOrder();
+                    System.out.print("\tPlease choose a burger type - available choices are:" +
+                            "\n\t\t- Hamburger\n\t\t- Cheese burger" +
+                            "\n\t\t- Deluxe burger\n\t\t- Charm burger\n\tEnter your choise: ");
+                    String type = Main.scanner.nextLine();
+                    Burger burger = Burger.singleBurgerOrder(type);
                     price += burger.getPrice();
                 }
 
@@ -52,8 +56,21 @@ public class Main {
                     int menuChoice = scanner.nextInt();
                     scanner.nextLine();
                     switch (menuChoice) {
-                        case 1 -> price += new Meal().getPrice();
-                        case 2 -> price += new Meal("Cheeseburger").getPrice();
+                        case 1 -> {
+                            System.out.println("Basic menu - ordered");
+                            price += new Meal().getPrice();
+                        }
+                        case 2 -> {
+                            System.out.println("Cheese menu - ordered");
+                            price += new Meal("Cheeseburger").getPrice();
+                        }
+                        case 3 -> {
+                            System.out.println("Charm menu ordered");
+                            price += new Meal("Charm").getPrice();
+                        }
+                        default -> {
+                            System.out.println("We have only 3 menus you can order from...");
+                        }
 
                     }
 

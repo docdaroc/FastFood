@@ -51,12 +51,9 @@ public class Burger {
         return 5.5;
     }
 
-    public static Burger singleBurgerOrder() {
-        System.out.print("\tPlease choose a burger type - available choices are:" +
-                "\n\t\t- Hamburger\n\t\t- Cheese burger" +
-                "\n\t\t- Deluxe burger\n\t\t- Charm burger\n\tEnter your choise: ");
-        String type = Main.scanner.nextLine();
-        System.out.print("\tWould you like any toppings? [Y/N] -> ");
+    public static Burger singleBurgerOrder(String type) {
+        System.out.print("\tYou can add up to three toppings on the burger." +
+                "\n\tWould you like any toppings? [Y/N] -> ");
         String toppingConfirmation = Main.scanner.nextLine();
         if (toppingConfirmation.toLowerCase().contains("y")){
             return Toppings.withTopping(type);
@@ -68,17 +65,22 @@ public class Burger {
         return price;
     }
 
+    public String getType() {
+        return type;
+    }
+
     public static class Toppings{
         static int topppingCount = 0;
         static String toppingOne = "";
         static String toppingTwo = "";
         static String toppingThree = "";
 
-        public static Burger withTopping(String type){
+        private static Burger withTopping(String type){
             for (int i = 1; i <= 3; i++) {
-                System.out.print("\t\tChoose a topping: ");
+                System.out.print("\t\tChoose topping No" + i + ": ");
                 String currentTopping = Main.scanner.nextLine();
                 if (currentTopping.equals("") || currentTopping.toLowerCase().equals("no")) {
+                    System.out.println("Ok, burger will stay with only " + (i - 1) + "toppings.");
                     break;
                 }
                 topppingCount++;

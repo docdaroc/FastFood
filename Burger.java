@@ -38,6 +38,19 @@ public class Burger {
         this.toppingThree = toppingThree;
     }
 
+    public String burgerInitialization(String type){
+        if (type.toLowerCase().contains("chee")) {
+            setType("Cheese burger");
+        } else if (type.toLowerCase().contains("ham")) {
+            setType("Hamburger");
+        } else if (type.toLowerCase().contains("del")) {
+            setType("Deluxe burger");
+        } else if (type.toLowerCase().contains("ch")) {
+            setType("Charm burger");
+        }
+        return getType();
+    }
+
     private double burgerPrice(String type) {
         if (type.toLowerCase().contains("chee")) {
             return 5;
@@ -53,7 +66,7 @@ public class Burger {
 
     public static Burger singleBurgerOrder(String type) {
         System.out.print("\tYou can add up to three toppings on the burger." +
-                "\n\tWould you like any toppings? [Y/N] -> ");
+                "\n\tWould you like to add any? [Y/N] -> ");
         String toppingConfirmation = Main.scanner.nextLine();
         if (toppingConfirmation.toLowerCase().contains("y")){
             return Toppings.withTopping(type);
@@ -63,6 +76,10 @@ public class Burger {
 
     public double getPrice() {
         return price;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getType() {

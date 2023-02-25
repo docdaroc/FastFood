@@ -33,6 +33,8 @@ public class Main {
                             "\n\t\t- Deluxe burger\n\t\t- Charm burger\n\tEnter your choise: ");
                     String type = Main.scanner.nextLine();
                     Burger burger = Burger.singleBurgerOrder(type);
+                    System.out.println("\t" + burger.burgerInitialization(type) + " in the " +
+                            "order...");
                     price += burger.getPrice();
                 }
 
@@ -55,21 +57,25 @@ public class Main {
                             "\n\t\t-side item (size by choice)\n\tEnter your choice: ");
                     int menuChoice = scanner.nextInt();
                     scanner.nextLine();
+                    String size;
                     switch (menuChoice) {
                         case 1 -> {
-                            System.out.println("Basic menu - ordered");
+                            System.out.println("\tBasic menu - ordered");
                             price += new Meal().getPrice();
                         }
                         case 2 -> {
-                            System.out.println("Cheese menu - ordered");
-                            price += new Meal("Cheeseburger").getPrice();
+                            size = sizeOfMeal();
+                            System.out.println("\tCheese menu - ordered as " + size.toLowerCase());
+                            price += new Meal("Cheeseburger", size).getPrice();
+
                         }
                         case 3 -> {
-                            System.out.println("Charm menu ordered");
-                            price += new Meal("Charm").getPrice();
+                            size = sizeOfMeal();
+                            System.out.println("\tCharm menu ordered");
+                            price += new Meal("Charm", size).getPrice();
                         }
                         default -> {
-                            System.out.println("We have only 3 menus you can order from...");
+                            System.out.println("\tWe have only 3 menus you can order from...");
                         }
 
                     }
@@ -83,7 +89,7 @@ public class Main {
             String input = scanner.nextLine();
             System.out.println("\t__________________________________");
             if (input.toLowerCase().contains("n")) {
-                System.out.println("\tYour order is " + price + ", please!");
+                System.out.println("\tYour order is " + price + "$, please!");
                 quit = true;
                 break;
             }
@@ -97,6 +103,13 @@ public class Main {
                 "2) Single drink\n\t\t" +
                 "3) Single side item\n\t\t" +
                 "4) Menu / Meal order containing burger, drink and side item");
+    }
+
+    private static String sizeOfMeal(){
+        System.out.print("\tWhich size of the menu would you like? [small / large]\n\t" +
+                "Enter your choice: ");
+        String choosenSize = Main.scanner.nextLine();
+        return choosenSize;
     }
 
 

@@ -55,7 +55,7 @@ public class Main {
                     System.out.print("\tChoose your menu - available options are:\n\t1) Basic menu:\n\t\t-Hamburger (no toppings)\n\t\t-small drink" +
                             "\n\t\t-small side item\n\t2) Cheeseburger menu\n\t\t-Cheeseburger (toppings included)\n\t\t-drink (size by choice)" +
                             "\n\t\t-side item (size by choice)\n\t3) Charming menu\n\t\t-Charmburger (toppings included)\n\t\t-drink (size by choice)" +
-                            "\n\t\t-side item (size by choice)\n\tEnter your choice: [by entering the kind of burger menu]");
+                            "\n\t\t-side item (size by choice)\n\tEnter your choice [1-3]: ");
 
                     int menuChoice = scanner.nextInt();
                     scanner.nextLine();

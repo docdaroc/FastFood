@@ -94,11 +94,9 @@ public class Burger {
 
         private static Burger withTopping(String type){
             for (int i = 1; i <= 3; i++) {
-<<<<<<< HEAD
+
                 System.out.print("\t\tChoose topping No" + i + " [enter it freely]: ");
-=======
-                System.out.print("\t\tChoose topping No" + i + ": ");
->>>>>>> bafdce6d0c03497b6dff2196546dcf5c16cf746e
+
                 String currentTopping = Main.scanner.nextLine();
                 if (currentTopping.equals("") || currentTopping.toLowerCase().equals("no")) {
                     System.out.println("\tOk, burger will stay with only " + (i - 1) + "toppings.");
